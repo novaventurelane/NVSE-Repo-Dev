@@ -9,8 +9,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.Slot;
 
-import static com.novaventure.survivalessentials.registry.Initializers.Blocks.ICEBOX_SCREEN_HANDLER;
-
 public class IceBoxScreenHandler extends ScreenHandler {
     private final Inventory inventory; // Chest inventory
     private static final int INVENTORY_SIZE = 54; // 6 rows * 9 cols

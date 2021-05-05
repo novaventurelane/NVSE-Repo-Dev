@@ -1,8 +1,6 @@
 package com.novaventure.survivalessentials.registry.Blocks.Plants.Decorative.Nether;
 
 import net.minecraft.block.*;
-import net.minecraft.fluid.FluidState;
-import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;

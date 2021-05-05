@@ -1,7 +1,7 @@
 package com.novaventure.survivalessentials.registry.WeaponsAndTools.Knives;
 
-import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.Items;
+import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
 
 public class IronToolMaterialKnife implements ToolMaterial {

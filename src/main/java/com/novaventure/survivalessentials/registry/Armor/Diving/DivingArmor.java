@@ -6,11 +6,6 @@ import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
-import org.intellij.lang.annotations.Identifier;
-
-import java.rmi.registry.Registry;
-
-import static com.novaventure.survivalessentials.SurvivalEssentials.MOD_ID;
 
 public class DivingArmor implements ArmorMaterial {
     private static final int[] BASE_DURABILITY = new int[] {13, 15, 16, 11};

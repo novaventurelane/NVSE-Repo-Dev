@@ -13,8 +13,8 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
 
-import static com.novaventure.survivalessentials.SurvivalEssentials.*;
-import static com.novaventure.survivalessentials.registry.Initializers.ItemGroups.*;
+import static com.novaventure.survivalessentials.SurvivalEssentials.MOD_ID;
+import static com.novaventure.survivalessentials.registry.Initializers.ItemGroups.MISC_GROUP;
 
 public class MiscItems {
     public static final Item AMBER_ITEM = new AmberItemBase(new Item.Settings().group(MISC_GROUP));

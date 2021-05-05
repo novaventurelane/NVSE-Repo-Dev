@@ -40,7 +40,7 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
-import static com.novaventure.survivalessentials.SurvivalEssentials.*;
+import static com.novaventure.survivalessentials.SurvivalEssentials.MOD_ID;
 import static com.novaventure.survivalessentials.registry.Initializers.ItemGroups.*;
 import static net.minecraft.block.Blocks.CHEST;
 

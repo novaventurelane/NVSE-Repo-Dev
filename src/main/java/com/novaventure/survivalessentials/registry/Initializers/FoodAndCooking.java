@@ -1,9 +1,8 @@
 package com.novaventure.survivalessentials.registry.Initializers;
 
 import com.novaventure.survivalessentials.registry.Blocks.Plants.Crops.RiceItemBase;
-import com.novaventure.survivalessentials.registry.Cooking.FoodTypeBases.*;
 import com.novaventure.survivalessentials.registry.Cooking.Food.*;
-import com.novaventure.survivalessentials.registry.Cooking.Food.SaltBase;
+import com.novaventure.survivalessentials.registry.Cooking.FoodTypeBases.*;
 import com.novaventure.survivalessentials.registry.Cooking.Jars.JamBase;
 import com.novaventure.survivalessentials.registry.Cooking.Jars.JarPotionBase;
 import com.novaventure.survivalessentials.registry.Creatures.FireEel.Items.FireEelItemBase;
@@ -14,8 +13,9 @@ import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
-import static com.novaventure.survivalessentials.SurvivalEssentials.*;
-import static com.novaventure.survivalessentials.registry.Initializers.ItemGroups.*;
+import static com.novaventure.survivalessentials.SurvivalEssentials.MOD_ID;
+import static com.novaventure.survivalessentials.registry.Initializers.ItemGroups.COOKING_GROUP;
+import static com.novaventure.survivalessentials.registry.Initializers.ItemGroups.MISC_GROUP;
 
 public class FoodAndCooking {
     public static final Item JARPOTION_BASE = new JarPotionBase(new Item.Settings().group(COOKING_GROUP));

@@ -1,6 +1,5 @@
 package com.novaventure.survivalessentials.mixin.client;
 
-import com.novaventure.survivalessentials.registry.Fluids.RottingFluid.RottingFluid;
 import it.unimi.dsi.fastutil.objects.Object2DoubleMap;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.damage.DamageSource;
@@ -24,7 +23,9 @@ public abstract class InLiquidMixin implements Nameable, CommandOutput {
     @Shadow protected boolean firstUpdate;
     @Shadow public abstract boolean damage(DamageSource source, float amount);
 
-    // Checks if the player is in your Liquid.
+    /**
+     * Checks if the player is in your Liquid.
+     */
     private boolean isInLiquid() {
         // This if statement is removable if you want to damage the entity if they're in a boat.
         if (this.getVehicle() instanceof BoatEntity) {
@@ -34,12 +35,16 @@ public abstract class InLiquidMixin implements Nameable, CommandOutput {
         }
     }
 
-    // Damages the player.
+    /**
+     * Damages the player.
+     */
     private void damageInLiquid() {
         this.damage(DamageSource.WITHER, 4.0F);
     }
 
-    // Checks if the player is in your liquid each tick.
+    /**
+     * Checks if the player is in your liquid each tick.
+     */
     @Inject(method = "baseTick", at = @At("HEAD"))
     private void baseTick(CallbackInfo ci) {
         if (isInLiquid()) {

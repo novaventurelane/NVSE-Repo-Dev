@@ -28,7 +28,7 @@ import net.minecraft.world.BlockRenderView;
 
 import java.util.function.Function;
 
-import static com.novaventure.survivalessentials.SurvivalEssentials.*;
+import static com.novaventure.survivalessentials.SurvivalEssentials.MOD_ID;
 import static com.novaventure.survivalessentials.registry.Initializers.Blocks.*;
 import static com.novaventure.survivalessentials.registry.Initializers.Mobs.*;
 import static com.novaventure.survivalessentials.registry.Initializers.ModFluidsInitializer.FLOWING_ROTTING;

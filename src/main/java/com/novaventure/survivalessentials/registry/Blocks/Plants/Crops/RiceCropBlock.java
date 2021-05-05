@@ -30,7 +30,6 @@ import net.minecraft.world.WorldView;
 import java.util.Iterator;
 import java.util.Random;
 
-import static com.novaventure.survivalessentials.SurvivalEssentials.*;
 import static com.novaventure.survivalessentials.registry.Initializers.FoodAndCooking.RICE_ITEM;
 
 public class RiceCropBlock extends PlantBlock implements Fertilizable {

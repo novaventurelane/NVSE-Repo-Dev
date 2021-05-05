@@ -14,7 +14,6 @@ import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
-
 import net.minecraft.util.registry.Registry;
 
 import static com.novaventure.survivalessentials.SurvivalEssentials.MOD_ID;

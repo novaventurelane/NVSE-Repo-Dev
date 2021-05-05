@@ -1,12 +1,10 @@
 package com.novaventure.survivalessentials.registry.Blocks.Plants.Underwater;
 
 import net.minecraft.block.*;
-import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.server.world.ServerWorld;
 import net.minecraft.tag.FluidTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;

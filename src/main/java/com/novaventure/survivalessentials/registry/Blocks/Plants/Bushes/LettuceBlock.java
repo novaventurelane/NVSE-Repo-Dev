@@ -3,11 +3,7 @@ package com.novaventure.survivalessentials.registry.Blocks.Plants.Bushes;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.*;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.pathing.NavigationType;
-import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -22,7 +18,6 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
@@ -31,7 +26,6 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 import static com.novaventure.survivalessentials.registry.Initializers.Blocks.LETTUCE;
-import static com.novaventure.survivalessentials.registry.Initializers.Blocks.TOMATO_BUSH;
 
 public class LettuceBlock extends PlantBlock implements Fertilizable {
     public static final IntProperty AGE;

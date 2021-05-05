@@ -35,7 +35,6 @@ import net.minecraft.world.WorldView;
 import java.util.Iterator;
 import java.util.Random;
 
-import static com.novaventure.survivalessentials.SurvivalEssentials.*;
 import static com.novaventure.survivalessentials.registry.Initializers.MiscItems.IGUSA_BUNDLE;
 
 public class IgusaCropBlock extends PlantBlock implements Fertilizable {

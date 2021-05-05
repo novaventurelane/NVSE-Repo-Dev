@@ -1,43 +1,24 @@
 package com.novaventure.survivalessentials.registry.Adventure_Gear;
 
-import com.novaventure.survivalessentials.registry.Blocks.Entity.CampfirePotBlockEntity;
 import com.novaventure.survivalessentials.registry.Blocks.Entity.IceBoxBlockEntity;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
-import net.fabricmc.fabric.api.container.ContainerProviderRegistry;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.enums.BedPart;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
-import net.minecraft.particle.ParticleTypes;
 import net.minecraft.screen.NamedScreenHandlerFactory;
-import net.minecraft.screen.ScreenHandler;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
-import net.minecraft.stat.Stats;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.Properties;
-import net.minecraft.state.property.Property;
-import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.*;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
-import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
-
-import java.util.Random;
-
-import static com.novaventure.survivalessentials.registry.Initializers.Blocks.ICEBOX_BLOCK;
 
 public class IceBoxBlock extends BlockWithEntity {
     public static final DirectionProperty FACING;
@@ -48,18 +29,22 @@ public class IceBoxBlock extends BlockWithEntity {
         this.setDefaultState(this.getDefaultState().with(FACING, Direction.NORTH).with(IS_BOTTOM, true));
     }
 
+    @Override
     public BlockState rotate(BlockState state, BlockRotation rotation) {
         return state.with(FACING, rotation.rotate(state.get(FACING)));
     }
 
+    @Override
     public BlockState mirror(BlockState state, BlockMirror mirror) {
         return state.rotate(mirror.getRotation(state.get(FACING)));
     }
 
+    @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(FACING, IS_BOTTOM);
     }
 
+    @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         Direction direction = ctx.getPlayerFacing();
         BlockPos blockPos = ctx.getBlockPos();

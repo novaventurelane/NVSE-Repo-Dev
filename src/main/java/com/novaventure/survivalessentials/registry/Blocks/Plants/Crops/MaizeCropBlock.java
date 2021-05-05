@@ -5,7 +5,6 @@ import net.fabricmc.api.Environment;
 import net.minecraft.block.*;
 import net.minecraft.entity.ai.pathing.NavigationType;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.fluid.FluidState;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.server.world.ServerWorld;
@@ -15,7 +14,6 @@ import net.minecraft.state.StateManager;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.state.property.Property;
-import net.minecraft.tag.FluidTags;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
@@ -31,7 +29,6 @@ import java.util.Iterator;
 import java.util.Random;
 
 import static com.novaventure.survivalessentials.registry.Initializers.Blocks.MAIZE_CROP;
-import static com.novaventure.survivalessentials.registry.Initializers.FoodAndCooking.RICE_ITEM;
 
 public class MaizeCropBlock extends PlantBlock implements Fertilizable {
     public static final IntProperty AGE;

@@ -14,7 +14,6 @@ import net.minecraft.util.UseAction;
 import net.minecraft.world.World;
 
 import static com.novaventure.survivalessentials.registry.Initializers.FoodAndCooking.JARPOTION_BASE;
-import static com.novaventure.survivalessentials.registry.Initializers.FoodAndCooking.MUG_EMPTY;
 
 public class JamBase extends Item {
     public JamBase(Settings settings) {
