@@ -40,7 +40,7 @@ public class CampfirePotBlock extends AbstractFurnaceBlock {
     public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
         if (random.nextInt(12) == 0) {
             double d = (double) pos.getX() + 0.5D;
-            double e = (double) pos.getY();
+            double e = pos.getY();
             double f = (double) pos.getZ() + 0.5D;
             world.playSound((double)pos.getX() + 0.5D, (double)pos.getY() + 0.5D, (double)pos.getZ() + 0.5D, SoundEvents.BLOCK_FIRE_AMBIENT, SoundCategory.BLOCKS, 1.0F + random.nextFloat(), random.nextFloat() * 0.7F + 0.3F, false);
             world.addParticle(ParticleTypes.SMOKE, d, e + 1.1D, f, 0.0D, 0.0D, 0.0D);

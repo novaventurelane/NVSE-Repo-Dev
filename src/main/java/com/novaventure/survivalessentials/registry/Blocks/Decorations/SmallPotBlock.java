@@ -15,54 +15,33 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.WorldAccess;
 import org.jetbrains.annotations.Nullable;
 
-public class GoldSkullBlock extends FacingBlock implements Waterloggable {
+public class SmallPotBlock extends HorizontalFacingBlock implements Waterloggable {
     public static final BooleanProperty WATERLOGGED;
-    protected static final VoxelShape EAST_SHAPE;
-    protected static final VoxelShape WEST_SHAPE;
-    protected static final VoxelShape SOUTH_SHAPE;
-    protected static final VoxelShape NORTH_SHAPE;
-    protected static final VoxelShape UP_SHAPE;
-    protected static final VoxelShape DOWN_SHAPE;
+    protected static final VoxelShape SHAPE;
 
     static {
         WATERLOGGED = Properties.WATERLOGGED;
-        UP_SHAPE = Block.createCuboidShape(4.0D, 0.0D, 4.0D, 12.0D, 8.0D, 12.0D);
-        DOWN_SHAPE = Block.createCuboidShape(4.0D, 0.0D, 4.0D, 12.0D, 8.0D, 12.0D);
-        EAST_SHAPE = Block.createCuboidShape(4.0D, 0.0D, 4.0D, 12.0D, 8.0D, 12.0D);
-        WEST_SHAPE = Block.createCuboidShape(4.0D, 0.0D, 4.0D, 12.0D, 8.0D, 12.0D);
-        NORTH_SHAPE = Block.createCuboidShape(4.0D, 0.0D, 4.0D, 12.0D, 8.0D, 12.0D);
-        SOUTH_SHAPE = Block.createCuboidShape(4.0D, 0.0D, 4.0D, 12.0D, 8.0D, 12.0D);
+        SHAPE = Block.createCuboidShape(4, 0, 4, 12, 9, 12);
     }
 
-    public GoldSkullBlock(AbstractBlock.Settings settings) {
+    public SmallPotBlock(AbstractBlock.Settings settings) {
         super(settings);
-        this.setDefaultState(this.stateManager.getDefaultState().with(WATERLOGGED, false).with(FACING, Direction.DOWN));
+        this.setDefaultState(this.stateManager.getDefaultState().with(WATERLOGGED, false).with(FACING, Direction.NORTH));
     }
 
+    @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        switch (state.get(FACING)) {
-            case NORTH:
-                return NORTH_SHAPE;
-            case SOUTH:
-                return SOUTH_SHAPE;
-            case WEST:
-                return WEST_SHAPE;
-            case EAST:
-                return EAST_SHAPE;
-            case UP:
-                return UP_SHAPE;
-            case DOWN:
-            default:
-                return DOWN_SHAPE;
-        }
+        return SHAPE;
     }
 
+    @Override
     @Nullable
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         boolean bl = ctx.getWorld().getFluidState(ctx.getBlockPos()).getFluid() == Fluids.WATER;
-        return this.getDefaultState().with(WATERLOGGED, bl).with(FACING, ctx.getPlayerLookDirection().getOpposite());
+        return this.getDefaultState().with(WATERLOGGED, bl).with(FACING, ctx.getPlayerFacing().getOpposite());
     }
 
+    @Override
     public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState newState, WorldAccess world, BlockPos pos, BlockPos posFrom) {
         if (state.get(WATERLOGGED)) {
             world.getFluidTickScheduler().schedule(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
@@ -71,16 +50,18 @@ public class GoldSkullBlock extends FacingBlock implements Waterloggable {
         return super.getStateForNeighborUpdate(state, direction, newState, world, pos, posFrom);
     }
 
+    @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(FACING, WATERLOGGED);
     }
 
+    @Override
     public FluidState getFluidState(BlockState state) {
         return state.get(WATERLOGGED) ? Fluids.WATER.getStill(false) : super.getFluidState(state);
     }
 
+    @Override
     public boolean canPathfindThrough(BlockState state, BlockView world, BlockPos pos, NavigationType type) {
         return false;
     }
 }
-

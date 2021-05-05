@@ -7,12 +7,10 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
-public class BoxScreen extends HandledScreen<IceBoxScreenHandler> {
-
-    // a path to gui texture, you may replace it with new Identifier(YourMod.MOD_ID, "textures/gui/container/your_container.png");
+public class IceBoxScreen extends HandledScreen<IceBoxScreenHandler> {
     private static final Identifier TEXTURE = new Identifier("novesues","textures/overlays/icebox_inventory.png");
 
-    public BoxScreen(IceBoxScreenHandler handler, PlayerInventory playerInventory, Text title) {
+    public IceBoxScreen(IceBoxScreenHandler handler, PlayerInventory playerInventory, Text title) {
         super(handler, playerInventory, title);
         this.backgroundHeight = 114 + 6 * 18;
     }

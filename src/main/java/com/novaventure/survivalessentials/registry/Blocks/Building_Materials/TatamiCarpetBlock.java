@@ -27,7 +27,7 @@ public class TatamiCarpetBlock extends FacingBlock {
     }
 
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        switch ((Direction)state.get(FACING)) {
+        switch (state.get(FACING)) {
             case NORTH:
                 return NORTH_SHAPE;
             case SOUTH:
@@ -49,7 +49,7 @@ public class TatamiCarpetBlock extends FacingBlock {
     }
 
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return (BlockState)super.getPlacementState(ctx).with(FACING, ctx.getPlayerLookDirection().getOpposite());
+        return super.getPlacementState(ctx).with(FACING, ctx.getPlayerLookDirection().getOpposite());
     }
 
     public boolean canPathfindThrough(BlockState state, BlockView world, BlockPos pos, NavigationType type) {

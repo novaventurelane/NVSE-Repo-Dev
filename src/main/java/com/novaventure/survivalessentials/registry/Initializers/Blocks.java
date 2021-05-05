@@ -45,7 +45,11 @@ import static com.novaventure.survivalessentials.registry.Initializers.ItemGroup
 import static net.minecraft.block.Blocks.CHEST;
 
 public class Blocks {
-    public static final Block ANCHOR_BLOCK = new AnchorBlock();
+    public static final Block ANCHOR_BLOCK = new AnchorBlock(FabricBlockSettings.of(Material.METAL)
+            .breakByTool(FabricToolTags.PICKAXES)
+            .breakByHand(false)
+            .sounds(BlockSoundGroup.METAL)
+            .strength(2.5f, 2.5f));
     //apple tree blocks
     public static final Block APPLE_LEAVES = new AppleLeavesBlock(FabricBlockSettings.of(Material.LEAVES).nonOpaque()
             .breakByHand(true)
@@ -198,23 +202,39 @@ public class Blocks {
             .sounds(BlockSoundGroup.CHAIN)
             .strength(3,0.8f).luminance(15));
 
-    //shells
+    // shells
     public static final Block CLAM_BLOCK = new ClamBlock();
     public static final Block CLAM_PEARL_BLOCK = new ClamPearlBlock();
     public static final Block SAND_DOLLAR_BLOCK = new SandDollarBlock();
     public static final Block BARNACLES_BLOCK = new BarnaclesBlock();
     public static final Block GIANT_SCALLOP_BLOCK = new GiantScallopBlock();
-    //public static final Block GOLD_SKULL_BLOCK = new GoldSkullBlock();
-    public static final Block POT_GIFT = new PotGiftBlock();
-    public static final Block POT_GOLEM = new PotGolemBlock();
-    public static final Block POT_EXPLORING = new PotExploringBlock();
-    public static final Block POT_TEMPLE = new PotTempleBlock();
-    public static final Block POT_STRIPE = new PotStripeBlock();
+
+    // public static final Block GOLD_SKULL_BLOCK = new GoldSkullBlock(FabricBlockSettings.of(Material.METAL)
+    //                .breakByTool(FabricToolTags.PICKAXES)
+    //                .breakByHand(false)
+    //                .sounds(BlockSoundGroup.METAL)
+    //                .strength(2.5f, 2.5f));
+
+    public static final AbstractBlock.Settings POT_BLOCK_SETTINGS = FabricBlockSettings.of(Material.STONE)
+            .breakByHand(true)
+            .sounds(BlockSoundGroup.STONE)
+            .strength(2.5f, 2.5f);
+    public static final Block POT_GIFT = new MediumPotBlock(POT_BLOCK_SETTINGS);
+    public static final Block POT_GOLEM = new MediumPotBlock(POT_BLOCK_SETTINGS);
+    public static final Block POT_EXPLORING = new TallPotBlock(POT_BLOCK_SETTINGS);
+    public static final Block POT_TEMPLE = new LargePotBlock(POT_BLOCK_SETTINGS);
+    public static final Block POT_STRIPE = new SmallPotBlock(POT_BLOCK_SETTINGS);
+
     public static final Block SALT_ORE = new SaltOreBlock();
     public static final Block NETHER_SALT = new NetherSaltBlock();
     public static final Block NETHER_COAL_ORE = new NetherCoalOreBlock();
-    public static final Block CHARCOAL_BLOCK = new CharcoalBlock();
-    //fossils
+    public static final Block CHARCOAL_BLOCK = new Block(FabricBlockSettings.of(Material.STONE)
+            .breakByTool(FabricToolTags.PICKAXES)
+            .breakByHand(false)
+            .sounds(BlockSoundGroup.STONE)
+            .strength(3, 1.5f));
+
+    // fossils
     public static final Block STONE_BUSH = new StoneBushBlock();
     public static final Block STONE_CORAL = new StoneCoralBlock();
     public static final Block STONE_FISH = new StoneFishBlock();
@@ -238,48 +258,47 @@ public class Blocks {
     public static final Block NETHER_SHVL = new NetherShvlBlock();
     public static final Block NETHER_SKULL = new NetherSkullBlock();
     public static final Block NETHER_ROSE = new NetherRoseBlock();
-    public static final Block DRIED_SEAWEED_BLOCK = new DriedSeaweedBlock();
-    public static final Block DRIED_BROWN_KELP_BLOCK = new DriedBrownKelpBlock();
-    public static final Block DRIED_ORANGE_KELP_BLOCK = new DriedOrangeKelpBlock();
+
+    private static final AbstractBlock.Settings AQUATIC_PLANT_BLOCK_SETTINGS = FabricBlockSettings.of(Material.LEAVES)
+            .breakByHand(true)
+            .sounds(BlockSoundGroup.GRASS)
+            .strength(0.5f, 0.5f);
+    public static final Block DRIED_SEAWEED_BLOCK = new Block(AQUATIC_PLANT_BLOCK_SETTINGS);
+    public static final Block DRIED_BROWN_KELP_BLOCK = new Block(AQUATIC_PLANT_BLOCK_SETTINGS);
+    public static final Block DRIED_ORANGE_KELP_BLOCK = new Block(AQUATIC_PLANT_BLOCK_SETTINGS);
+
+    // TODO Figure out the exact idea for implementing tatami blocks
     public static final Block TATAMI_CARPET = new TatamiCarpetBlock();
     public static final Block TATAMI_HALF_CARPET = new TatamiHalfCarpetBlock();
     public static final Block TATAMI_HALF = new TatamiHalfBlock();
     public static final Block TATAMI_BLOCK = new TatamiBlock();
-    public static final Block SHOJI_TALL = new ShojiBlockTall();
-    public static final Block SHOJI_SQUARE = new ShojiBlockMedium();
-    public static final Block SHOJI_SMALL = new ShojiBlockSmall();
-    public static final Block SHOJI_LARGE = new ShojiBlockLarge();
-    public static final Block SPIKE_WALL_BLOCK = new SpikeWallTrapBlock();
 
-    public static final Block BLAZE_NETTLE = new DamagingPlantBase(FabricBlockSettings.of(Material.PLANT)
+    private static final AbstractBlock.Settings SHOJI_BLOCK_SETTINGS = FabricBlockSettings.of(Material.WOOD)
+            .breakByHand(true)
+            .sounds(BlockSoundGroup.WOOD)
+            .strength(1.0f, 1.0f);
+    public static final Block SHOJI_TALL = new ShojiBlock(SHOJI_BLOCK_SETTINGS);
+    public static final Block SHOJI_SQUARE = new ShojiBlock(SHOJI_BLOCK_SETTINGS);
+    public static final Block SHOJI_SMALL = new ShojiBlock(SHOJI_BLOCK_SETTINGS);
+    public static final Block SHOJI_LARGE = new ShojiBlock(SHOJI_BLOCK_SETTINGS);
+
+    public static final Block SPIKE_WALL_BLOCK = new SpikeTrapBlock(FabricBlockSettings.of(Material.WOOD)
+            .breakByTool(FabricToolTags.AXES)
+            .breakByHand(true)
+            .sounds(BlockSoundGroup.BAMBOO)
+            .strength(3, 1.5f));
+
+    private static final AbstractBlock.Settings NETHER_BLOCK_SETTINGS = FabricBlockSettings.of(Material.PLANT)
             .breakByHand(true)
             .sounds(BlockSoundGroup.NETHER_WART)
-            .strength(0.2f, 1.0f).luminance(5));
-
-    public static final Block GLOWING_SHELF = new ShelfFungiBase(FabricBlockSettings.of(Material.PLANT)
-            .breakByHand(true)
-            .sounds(BlockSoundGroup.NETHER_WART)
-            .strength(0.2f, 1.0f).luminance(7));
-
-    public static final Block CORRUPT_WART = new DamagingPlantBase(FabricBlockSettings.of(Material.PLANT)
-            .breakByHand(true)
-            .sounds(BlockSoundGroup.NETHER_WART)
-            .strength(0.2f, 1.0f).luminance(4));
-
-    public static final Block TAINTED_BUSH = new DamagingPlantBase(FabricBlockSettings.of(Material.PLANT)
-            .breakByHand(true)
-            .sounds(BlockSoundGroup.NETHER_WART)
-            .strength(0.2f, 1.0f));
-
-    public static final Block WATCHERS_GAZE = new DamagingPlantBase(FabricBlockSettings.of(Material.PLANT)
-            .breakByHand(true)
-            .sounds(BlockSoundGroup.NETHER_WART)
-            .strength(0.2f, 1.0f));
-
-    public static final Block WEAPING_BRIAR = new DamagingPlantBase(FabricBlockSettings.of(Material.PLANT)
-            .breakByHand(true)
-            .sounds(BlockSoundGroup.NETHER_WART)
-            .strength(0.2f, 1.0f));
+            .strength(0.2f, 1.0f);
+    public static final Block TAINTED_BUSH = new DamagingPlantBase(NETHER_BLOCK_SETTINGS);
+    public static final Block WATCHERS_GAZE = new DamagingPlantBase(NETHER_BLOCK_SETTINGS);
+    public static final Block WEAPING_BRIAR = new DamagingPlantBase(NETHER_BLOCK_SETTINGS);
+    // We do luminance later as otherwise it would mutate the current copy and give the above plants luminance
+    public static final Block GLOWING_SHELF = new ShelfFungiBase(NETHER_BLOCK_SETTINGS.luminance((state) -> 7));
+    public static final Block BLAZE_NETTLE = new DamagingPlantBase(NETHER_BLOCK_SETTINGS.luminance((state) -> 5));
+    public static final Block CORRUPT_WART = new DamagingPlantBase(NETHER_BLOCK_SETTINGS.luminance((state) -> 4));
 
     // a public identifier for multiple parts of our bigger chest
     public static final Identifier BOX = new Identifier(MOD_ID, "icebox");

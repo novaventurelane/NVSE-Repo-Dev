@@ -39,7 +39,7 @@ public class RiceCropBlock extends PlantBlock implements Fertilizable {
 
     public RiceCropBlock(AbstractBlock.Settings settings) {
         super(settings);
-        this.setDefaultState((BlockState)((BlockState)this.stateManager.getDefaultState()).with(AGE, 0));
+        this.setDefaultState(this.stateManager.getDefaultState().with(AGE, 0));
     }
 
     @Environment(EnvType.CLIENT)
@@ -48,35 +48,35 @@ public class RiceCropBlock extends PlantBlock implements Fertilizable {
     }
 
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        if ((Integer)state.get(AGE) == 0) {
+        if (state.get(AGE) == 0) {
             return SMALL_SHAPE;
         } else {
-            return (Integer)state.get(AGE) < 6 ? LARGE_SHAPE : super.getOutlineShape(state, world, pos, context);
+            return state.get(AGE) < 6 ? LARGE_SHAPE : super.getOutlineShape(state, world, pos, context);
         }
     }
 
     public boolean hasRandomTicks(BlockState state) {
-        return (Integer)state.get(AGE) < 6;
+        return state.get(AGE) < 6;
     }
 
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        int i = (Integer)state.get(AGE);
+        int i = state.get(AGE);
         if (i < 6 && random.nextInt(5) == 0 && world.getBaseLightLevel(pos.up(), 0) >= 9) {
-            world.setBlockState(pos, (BlockState)state.with(AGE, i + 1), 2);
+            world.setBlockState(pos, state.with(AGE, i + 1), 2);
         }
 
     }
 
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        int i = (Integer)state.get(AGE);
+        int i = state.get(AGE);
         boolean bl = i == 6;
         if (!bl && player.getStackInHand(hand).getItem() == Items.BONE_MEAL) {
             return ActionResult.PASS;
         } else if (i > 1) {
             int j = 1 + world.random.nextInt(6);
             dropStack(world, pos, new ItemStack(RICE_ITEM, j + (bl ? 1 : 0)));
-            world.playSound((PlayerEntity)null, pos, SoundEvents.ITEM_SWEET_BERRIES_PICK_FROM_BUSH, SoundCategory.BLOCKS, 1.0F, 0.8F + world.random.nextFloat() * 0.4F);
-            world.setBlockState(pos, (BlockState)state.with(AGE, 0), 2);
+            world.playSound(null, pos, SoundEvents.ITEM_SWEET_BERRIES_PICK_FROM_BUSH, SoundCategory.BLOCKS, 1.0F, 0.8F + world.random.nextFloat() * 0.4F);
+            world.setBlockState(pos, state.with(AGE, 0), 2);
             return ActionResult.success(world.isClient);
         } else {
             return super.onUse(state, world, pos, player, hand, hit);
@@ -84,11 +84,11 @@ public class RiceCropBlock extends PlantBlock implements Fertilizable {
     }
 
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(new Property[]{AGE});
+        builder.add(AGE);
     }
 
     public boolean isFertilizable(BlockView world, BlockPos pos, BlockState state, boolean isClient) {
-        return (Integer)state.get(AGE) < 7;
+        return state.get(AGE) < 7;
     }
 
     public boolean canGrow(World world, Random random, BlockPos pos, BlockState state) {
@@ -96,8 +96,8 @@ public class RiceCropBlock extends PlantBlock implements Fertilizable {
     }
 
     public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
-        int i = Math.min(6, (Integer)state.get(AGE) + 1);
-        world.setBlockState(pos, (BlockState)state.with(AGE, i), 2);
+        int i = Math.min(6, state.get(AGE) + 1);
+        world.setBlockState(pos, state.with(AGE, i), 2);
     }
 
     static {
@@ -117,7 +117,7 @@ public class RiceCropBlock extends PlantBlock implements Fertilizable {
     }
 
     public boolean canPathfindThrough(BlockState state, BlockView world, BlockPos pos, NavigationType type) {
-        return type == NavigationType.AIR && !this.collidable ? true : super.canPathfindThrough(state, world, pos, type);
+        return type == NavigationType.AIR && !this.collidable || super.canPathfindThrough(state, world, pos, type);
     }
 
     public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {

@@ -36,7 +36,7 @@ public class RedstoneBugEntity extends HostileEntity {
         this.goalSelector.add(3, this.callForHelpGoal);
         this.goalSelector.add(4, new MeleeAttackGoal(this, 1.0D, false));
         this.goalSelector.add(5, new RedstoneBugEntity.WanderAndInfestGoal(this));
-        this.targetSelector.add(1, (new RevengeGoal(this, new Class[0])).setGroupRevenge(new Class[0]));
+        this.targetSelector.add(1, (new RevengeGoal(this)).setGroupRevenge());
         this.targetSelector.add(2, new FollowTargetGoal(this, PlayerEntity.class, true));
     }
 
@@ -143,7 +143,7 @@ public class RedstoneBugEntity extends HostileEntity {
         }
 
         public boolean shouldContinue() {
-            return this.canInfest ? false : super.shouldContinue();
+            return !this.canInfest && super.shouldContinue();
         }
 
         public void start() {

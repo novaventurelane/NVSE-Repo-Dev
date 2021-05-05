@@ -41,7 +41,7 @@ public class IceBoxBlockEntity extends LootableContainerBlockEntity {
 
     @Override
     protected ScreenHandler createScreenHandler(int syncId, PlayerInventory playerInventory) {
-        return new IceBoxScreenHandler(syncId, playerInventory, (Inventory) this);
+        return new IceBoxScreenHandler(syncId, playerInventory, this);
     }
 
     @Override

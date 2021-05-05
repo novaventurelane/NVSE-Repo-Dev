@@ -1,6 +1,6 @@
 package com.novaventure.survivalessentials;
 
-import com.novaventure.survivalessentials.registry.Blocks.Entity.BoxScreen;
+import com.novaventure.survivalessentials.registry.Blocks.Entity.IceBoxScreen;
 import com.novaventure.survivalessentials.registry.Creatures.FireEel.FireEelEntityRenderer;
 import com.novaventure.survivalessentials.registry.Creatures.Jellyfish.JellyfishEntityRenderer;
 import com.novaventure.survivalessentials.registry.Creatures.RedstoneBug.RedstoneEntityRenderer;
@@ -38,7 +38,7 @@ public class SurvivalEssentialsClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-        ScreenRegistry.register(ICEBOX_SCREEN_HANDLER, BoxScreen::new);
+        ScreenRegistry.register(ICEBOX_SCREEN_HANDLER, IceBoxScreen::new);
 
         // Put blocks on the cutout layer
         BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(),
