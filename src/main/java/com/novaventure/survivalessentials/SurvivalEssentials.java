@@ -2,10 +2,13 @@ package com.novaventure.survivalessentials;
 
 import com.novaventure.survivalessentials.registry.Initializers.*;
 import net.fabricmc.api.ModInitializer;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class SurvivalEssentials implements ModInitializer {
 
     public static final String MOD_ID = "novesues";
+    public static final Logger LOGGER = LogManager.getLogger(MOD_ID);
 
     @Override
     public void onInitialize() {
@@ -20,6 +23,6 @@ public class SurvivalEssentials implements ModInitializer {
         ModFluidsInitializer.initialize();
         ArmorItems.initialize();
         //Tells you if this shit actually worked
-        System.out.println("The main mod initialization sections initialized fine™️.");
+        LOGGER.info("The main mod initialization sections initialized fine™️.");
     }
 }
