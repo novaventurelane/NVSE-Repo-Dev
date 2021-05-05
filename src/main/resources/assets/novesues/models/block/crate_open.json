@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "novesues:blocks/crate_top_open",
+    "bottom": "novesues:blocks/crate_top",
+    "side": "novesues:blocks/crate_side"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "novesues:block/stone_ribs",
+      "x": 0,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "novesues:block/stone_ribs",
+      "x": 0,
+      "y": 0
+    },
+    "facing=down": {
+      "model": "novesues:block/stone_ribs",
+      "x": 90,
+      "y": 0
+    },
+    "facing=up": {
+      "model": "novesues:block/stone_ribs",
+      "x": 270,
+      "7": 0
+    },
+    "facing=south": {
+      "model": "novesues:block/stone_ribs",
+      "x": 0,
+      "y": 180
+    },
+    "facing=west": {
+      "model": "novesues:block/stone_ribs",
+      "y": 270,
+      "x": 0
+    }
+  }
+}

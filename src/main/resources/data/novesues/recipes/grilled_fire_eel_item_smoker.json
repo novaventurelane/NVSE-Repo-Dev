@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "novesues:fire_eel_item"
+  },
+  "result": "novesues:grilled_fire_eel_item",
+  "experience": 0.35,
+  "cookingtime": 200
+}

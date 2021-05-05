@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "novesues:block/tatami_block",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "novesues:block/tatami_block",
+      "y": 0
+    },
+    "facing=down": {
+      "model": "novesues:block/tatami_block",
+      "y": 0
+    },
+    "facing=up": {
+      "model": "novesues:block/tatami_block",
+      "7": 0
+    },
+    "facing=south": {
+      "model": "novesues:block/tatami_block",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "novesues:block/tatami_block",
+      "y": 270
+    }
+  }
+}

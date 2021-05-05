@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "novesues:dried_brown_kelp_block"
+    }
+  ],
+  "result": {
+    "item": "novesues:dried_brown_kelp",
+    "count": 9
+  }
+}

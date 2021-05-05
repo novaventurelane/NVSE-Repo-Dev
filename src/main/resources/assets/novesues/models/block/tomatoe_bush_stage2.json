@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "novesues:blocks/tomatoe_bush_stage2"
+  }
+}

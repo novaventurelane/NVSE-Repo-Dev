@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "novesues:grilled_fire_eel_item"
+  },
+  "result": "minecraft:blaze_powder",
+  "experience": 0.7,
+  "cookingtime": 1200
+}

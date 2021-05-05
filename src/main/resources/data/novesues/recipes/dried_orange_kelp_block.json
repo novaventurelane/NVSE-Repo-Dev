@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "novesues:dried_orange_kelp"
+    },
+    {
+      "item": "novesues:dried_orange_kelp"
+    },
+    {
+      "item": "novesues:dried_orange_kelp"
+    },
+    {
+      "item": "novesues:dried_orange_kelp"
+    },
+    {
+      "item": "novesues:dried_orange_kelp"
+    },
+    {
+      "item": "novesues:dried_orange_kelp"
+    },
+    {
+      "item": "novesues:dried_orange_kelp"
+    },
+    {
+      "item": "novesues:dried_orange_kelp"
+    },
+    {
+      "item": "novesues:dried_orange_kelp"
+    }
+  ],
+  "result": {
+    "item": "novesues:dried_orange_kelp_block",
+    "count": 1
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "variants": {
+    "facing=east,waterlogged=false": {
+      "y": 90,
+      "model": "novesues:block/scallop"
+    },
+    "facing=east,waterlogged=true": {
+      "y": 90,
+      "model": "novesues:block/scallop"
+    },
+    "facing=north,waterlogged=false": {
+      "y": 0,
+      "model": "novesues:block/scallop"
+    },
+    "facing=north,waterlogged=true": {
+      "y": 0,
+      "model": "novesues:block/scallop"
+    },
+    "facing=south,waterlogged=false": {
+      "y": 180,
+      "model": "novesues:block/scallop"
+    },
+    "facing=south,waterlogged=true": {
+      "y": 180,
+      "model": "novesues:block/scallop"
+    },
+    "facing=west,waterlogged=false": {
+      "y": 270,
+      "model": "novesues:block/scallop"
+    },
+    "facing=west,waterlogged=true": {
+      "y": 270,
+      "model": "novesues:block/scallop"
+    }
+  }
+}

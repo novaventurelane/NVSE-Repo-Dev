@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "novesues:block/tatami_long_half",
+      "y": 180
+    },
+    "facing=north": {
+      "model": "novesues:block/tatami_long_half",
+      "y": 0
+    },
+    "facing=down": {
+      "model": "novesues:block/tatami_long_half",
+      "y": 0
+    },
+    "facing=up": {
+      "model": "novesues:block/tatami_long_half",
+      "7": 0
+    },
+    "facing=south": {
+      "model": "novesues:block/tatami_long_half",
+      "y": 90
+    },
+    "facing=west": {
+      "model": "novesues:block/tatami_long_half",
+      "y": 270
+    }
+  }
+}

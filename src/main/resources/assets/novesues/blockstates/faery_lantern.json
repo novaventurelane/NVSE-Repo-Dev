@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "hanging=false": {
+      "model": "novesues:block/faery_lantern"
+    },
+    "hanging=true": {
+      "model": "novesues:block/faery_lantern_hanging"
+    }
+  }
+}

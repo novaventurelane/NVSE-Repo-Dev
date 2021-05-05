@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "novesues:brown_kelp"
+  },
+  "result": "novesues:dried_brown_kelp",
+  "experience": 0.35,
+  "cookingtime": 200
+}

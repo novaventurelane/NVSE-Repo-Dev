@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.novaventure.survivalessentials.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+  ],
+  "client": [
+    "client.InGameHudMixin", "client.InLiquidMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

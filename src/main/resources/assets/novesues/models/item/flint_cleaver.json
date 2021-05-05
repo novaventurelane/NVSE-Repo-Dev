@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "novesues:items/flint_cleaver"
+  }
+}

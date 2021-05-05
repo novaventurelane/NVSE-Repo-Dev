@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "facing=down,waterlogged=false": {
+      "y": 0,
+      "model": "novesues:block/pot_gift"
+    },
+    "facing=down,waterlogged=true": {
+      "y": 0,
+      "model": "novesues:block/pot_gift"
+    },
+    "facing=east,waterlogged=false": {
+      "y": 90,
+      "model": "novesues:block/pot_gift"
+    },
+    "facing=east,waterlogged=true": {
+      "y": 90,
+      "model": "novesues:block/pot_gift"
+    },
+    "facing=north,waterlogged=false": {
+      "y": 0,
+      "model": "novesues:block/pot_gift"
+    },
+    "facing=north,waterlogged=true": {
+      "y": 0,
+      "model": "novesues:block/pot_gift"
+    },
+    "facing=south,waterlogged=false": {
+      "y": 180,
+      "model": "novesues:block/pot_gift"
+    },
+    "facing=south,waterlogged=true": {
+      "y": 180,
+      "model": "novesues:block/pot_gift"
+    },
+    "facing=up,waterlogged=false": {
+      "y": 0,
+      "model": "novesues:block/pot_gift"
+    },
+    "facing=up,waterlogged=true": {
+      "y": 0,
+      "model": "novesues:block/pot_gift"
+    },
+    "facing=west,waterlogged=false": {
+      "y": 270,
+      "model": "novesues:block/pot_gift"
+    },
+    "facing=west,waterlogged=true": {
+      "y": 270,
+      "model": "novesues:block/pot_gift"
+    }
+  }
+}

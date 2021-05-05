@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "novesues:block/rice_stage1"
+    },
+    "age=1": {
+      "model": "novesues:block/rice_stage2"
+    },
+    "age=2": {
+      "model": "novesues:block/rice_stage3"
+    },
+    "age=3": {
+      "model": "novesues:block/rice_stage4"
+    },
+    "age=4": {
+      "model": "novesues:block/rice_stage5"
+    },
+    "age=5": {
+      "model": "novesues:block/rice_stage6"
+    },
+    "age=6": {
+      "model": "novesues:block/rice_stage7"
+    },
+    "age=7": {
+      "model": "novesues:block/rice_stage7"
+    }
+  }
+}

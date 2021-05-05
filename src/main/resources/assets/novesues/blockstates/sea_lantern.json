@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "hanging=false": {
+      "model": "novesues:block/sea_lantern"
+    },
+    "hanging=true": {
+      "model": "novesues:block/sea_lantern_hanging"
+    }
+  }
+}

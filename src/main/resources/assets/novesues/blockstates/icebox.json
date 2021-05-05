@@ -1,0 +1,25 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "novesues:block/icebox"
+    },
+    "facing=east": {
+      "y": 90,
+      "model": "novesues:block/icebox"
+    },
+    "facing=north": {
+      "model": "novesues:block/icebox"
+    },
+    "facing=south": {
+      "y": 180,
+      "model": "novesues:block/icebox"
+    },
+    "facing=up": {
+      "model": "novesues:block/icebox"
+    },
+    "facing=west": {
+      "y": 270,
+      "model": "novesues:block/icebox"
+    }
+  }
+}

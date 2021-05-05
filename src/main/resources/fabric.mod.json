@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "novesues",
+  "version": "${version}",
+
+  "name": "Into the Wild Lands",
+  "description": "",
+  "authors": [
+    "Nova Venture"],
+  "contact": {
+    "twitter": "https://twitter.com/VentureNova/",
+    "homepage": "Coming soon!",
+    "discord": "https://discord.gg/jpmJqA8jCR"
+  },
+
+  "license": "CC-by-4.0",
+  "icon": "assets/novesues/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.novaventure.survivalessentials.SurvivalEssentials"],
+    "client": [
+      "com.novaventure.survivalessentials.ClientModInitFix"]
+  },
+  "mixins": [
+    "novesues.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.7.4",
+    "fabric": "*",
+    "minecraft": "1.16.x"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}

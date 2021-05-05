@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "novesues:block/climbable_rope",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "novesues:block/climbable_rope"
+    },
+    "axis=z": {
+      "model": "novesues:block/climbable_rope",
+      "x": 90
+    }
+  }
+}

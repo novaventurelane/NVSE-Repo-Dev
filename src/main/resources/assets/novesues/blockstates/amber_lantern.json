@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "hanging=false": {
+      "model": "novesues:block/amber_lantern"
+    },
+    "hanging=true": {
+      "model": "novesues:block/amber_lantern_hanging"
+    }
+  }
+}

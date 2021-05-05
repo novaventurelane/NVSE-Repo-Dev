@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/carpet",
+  "textures": {
+    "wool": "novesues:blocks/tatami_frame_side"
+  }
+}

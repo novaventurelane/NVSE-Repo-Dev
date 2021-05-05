@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "novesues:orange_kelp"
+  },
+  "result": "novesues:dried_orange_kelp",
+  "experience": 0.35,
+  "cookingtime": 200
+}

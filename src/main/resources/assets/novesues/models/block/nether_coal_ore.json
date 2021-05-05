@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "novesues:blocks/nether_coal_ore"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/template_hanging_lantern",
+  "textures": {
+    "lantern": "novesues:blocks/faery_lantern_hanging"
+  }
+}

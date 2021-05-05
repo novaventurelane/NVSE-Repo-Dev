@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "novesues:block/apple_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "novesues:block/apple_log"
+    },
+    "axis=z": {
+      "model": "novesues:block/apple_log_horizontal",
+      "x": 90
+    }
+  }
+}

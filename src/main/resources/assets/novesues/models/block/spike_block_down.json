@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "novesues:blocks/spike_block_down"
+  }
+}

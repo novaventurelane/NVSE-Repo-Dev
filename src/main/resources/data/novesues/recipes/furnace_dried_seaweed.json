@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "novesues:seaweed"
+  },
+  "result": "novesues:dried_seaweed",
+  "experience": 0.35,
+  "cookingtime": 200
+}

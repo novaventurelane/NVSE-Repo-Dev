@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "novesues:blocks/redstone_bug_ore"
+  }
+}

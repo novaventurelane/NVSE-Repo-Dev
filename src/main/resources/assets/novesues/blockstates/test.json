@@ -1,0 +1,32 @@
+{
+  "variants": {
+    },
+    "facing=up": {
+      "model": "minecraft:block/acacia_button",
+      "y": 180,
+      "x": 180
+    },
+    "face=down": {
+      "model": "minecraft:block/acacia_button_pressed"
+    },
+    "face=east": {
+      "model": "minecraft:block/acacia_button",
+      "y": 90,
+      "x": 90
+    },
+    "face=north": {
+      "model": "minecraft:block/acacia_button",
+      "x": 90
+    },
+    "face=south": {
+      "model": "minecraft:block/acacia_button",
+      "y": 180,
+      "x": 90
+    },
+    "face=west": {
+      "model": "minecraft:block/acacia_button",
+      "y": 270,
+      "x": 90
+    }
+  }
+}
