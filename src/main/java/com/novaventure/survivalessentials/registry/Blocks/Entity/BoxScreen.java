@@ -30,7 +30,6 @@ public class BoxScreen extends HandledScreen<IceBoxScreenHandler> {
 
     @Override
     protected void drawForeground(MatrixStack matrices, int mouseX, int mouseY) {
-        this.textRenderer.draw(matrices, this.title.asString(), 8.0F, 6.0F, 4210752);
-        this.textRenderer.draw(matrices, this.playerInventory.getDisplayName().asString(), 8.0F, (float)(this.backgroundHeight - 96 + 2), 4210752);
+        this.textRenderer.draw(matrices, this.title, 8.0F, 6.0F, 000000);
     }
 }
