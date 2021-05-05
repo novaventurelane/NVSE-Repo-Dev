@@ -1,34 +1,37 @@
 package com.novaventure.survivalessentials.registry.Blocks.Entity;
 
+import com.novaventure.survivalessentials.registry.Adventure_Gear.IceBoxBlock;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.entity.AbstractFurnaceBlockEntity;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.LootableContainerBlockEntity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.Inventory;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.recipe.RecipeType;
-import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.ScreenHandler;
-import net.minecraft.screen.SmokerScreenHandler;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.collection.DefaultedList;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 
 import static com.novaventure.survivalessentials.registry.Initializers.Blocks.ICEBOX_BLOCK_ENTITY;
-import static com.novaventure.survivalessentials.registry.Initializers.Mobs.CAMPFIREPOTBLOCK_ENTITY;
 
 public class IceBoxBlockEntity extends LootableContainerBlockEntity {
+    private boolean isBottom = false;
     private DefaultedList<ItemStack> inventory;
     private static final int INVENTORY_SIZE = 54; // 9 * 6 = 54
 
     public IceBoxBlockEntity() {
         super(ICEBOX_BLOCK_ENTITY);
         this.inventory = DefaultedList.ofSize(INVENTORY_SIZE, ItemStack.EMPTY);
+    }
+
+    @Override
+    public void setLocation(World world, BlockPos pos) {
+        super.setLocation(world, pos);
+        isBottom = this.getCachedState().get(IceBoxBlock.IS_BOTTOM);
     }
 
     @Override
@@ -43,11 +46,25 @@ public class IceBoxBlockEntity extends LootableContainerBlockEntity {
 
     @Override
     protected DefaultedList<ItemStack> getInvStackList() {
+        if (!isBottom) {
+            BlockEntity be = this.world.getBlockEntity(this.getPos().down());
+            if (be instanceof IceBoxBlockEntity) {
+                return ((IceBoxBlockEntity) be).inventory;
+            }
+        }
         return this.inventory;
     }
 
     @Override
     protected void setInvStackList(DefaultedList<ItemStack> list) {
+        if (!isBottom) {
+            BlockEntity be = this.world.getBlockEntity(this.getPos().down());
+            if (be instanceof IceBoxBlockEntity) {
+                ((IceBoxBlockEntity) be).inventory = list;
+                be.markDirty();
+                return;
+            }
+        }
         this.inventory = list;
     }
 

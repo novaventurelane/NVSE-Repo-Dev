@@ -1,25 +1,34 @@
 {
   "variants": {
-    "facing=down": {
-      "model": "novesues:block/icebox"
-    },
-    "facing=east": {
+    "facing=east,bottom=true": {
       "y": 90,
-      "model": "novesues:block/icebox"
+      "model": "novesues:block/icebox_bottom"
     },
-    "facing=north": {
-      "model": "novesues:block/icebox"
+    "facing=north,bottom=true": {
+      "model": "novesues:block/icebox_bottom"
     },
-    "facing=south": {
+    "facing=south,bottom=true": {
       "y": 180,
-      "model": "novesues:block/icebox"
+      "model": "novesues:block/icebox_bottom"
     },
-    "facing=up": {
-      "model": "novesues:block/icebox"
-    },
-    "facing=west": {
+    "facing=west,bottom=true": {
       "y": 270,
-      "model": "novesues:block/icebox"
+      "model": "novesues:block/icebox_bottom"
+    },
+    "facing=east,bottom=false": {
+      "y": 90,
+      "model": "novesues:block/icebox_top"
+    },
+    "facing=north,bottom=false": {
+      "model": "novesues:block/icebox_top"
+    },
+    "facing=south,bottom=false": {
+      "y": 180,
+      "model": "novesues:block/icebox_top"
+    },
+    "facing=west,bottom=false": {
+      "y": 270,
+      "model": "novesues:block/icebox_top"
     }
   }
 }
