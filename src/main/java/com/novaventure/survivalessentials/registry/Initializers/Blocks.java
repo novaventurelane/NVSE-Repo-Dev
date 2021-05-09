@@ -18,11 +18,13 @@ import com.novaventure.survivalessentials.registry.Blocks.Plants.Decorative.Neth
 import com.novaventure.survivalessentials.registry.Blocks.Plants.Decorative.Nether.ShelfFungiBase;
 import com.novaventure.survivalessentials.registry.Blocks.Plants.Trees.AppleLeavesBlock;
 import com.novaventure.survivalessentials.registry.Blocks.Plants.Trees.Saplings.SESaplingBlock;
+import com.novaventure.survivalessentials.registry.Blocks.Plants.Trees.ShiverpineLeavesBlock;
 import com.novaventure.survivalessentials.registry.Blocks.Plants.Underground.FaeryMushroomBase;
 import com.novaventure.survivalessentials.registry.Blocks.Plants.Underground.GreenMushroomBase;
 import com.novaventure.survivalessentials.registry.Blocks.Plants.Underwater.*;
 import com.novaventure.survivalessentials.registry.Creatures.RedstoneBug.InfestedRedstoneOreBlock;
 import com.novaventure.survivalessentials.registry.Features.Generators.AppleSaplingGenerator;
+import com.novaventure.survivalessentials.registry.Features.Generators.ShiverpineSaplingGenerator;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
@@ -52,7 +54,16 @@ public class Blocks {
             .sounds(BlockSoundGroup.GRASS)
             .strength(0.2f, 0.6f));
 
+    public static final Block SHIVERPINE_LEAVES = new ShiverpineLeavesBlock(FabricBlockSettings.of(Material.LEAVES).nonOpaque()
+            .breakByHand(true)
+            .sounds(BlockSoundGroup.GRASS)
+            .strength(0.2f, 0.6f));
+
     public static final SESaplingBlock APPLE_SAPLING = new SESaplingBlock(new AppleSaplingGenerator(), AbstractBlock.Settings.of(Material.PLANT)
+            .ticksRandomly().nonOpaque().noCollision().ticksRandomly().breakInstantly()
+            .sounds(BlockSoundGroup.GRASS));
+
+    public static final SESaplingBlock SHIVERPINE_SAPLING = new SESaplingBlock(new ShiverpineSaplingGenerator(), AbstractBlock.Settings.of(Material.PLANT)
             .ticksRandomly().nonOpaque().noCollision().ticksRandomly().breakInstantly()
             .sounds(BlockSoundGroup.GRASS));
 
@@ -288,6 +299,14 @@ public class Blocks {
     public static final BlockItem ICEBOX_BLOCK_ITEM;
     public static final BlockEntityType<IceBoxBlockEntity> ICEBOX_BLOCK_ENTITY;
 
+    public static final Block SHIVERPINE_LOG = new ShiverpineBlock();
+    public static final Block SHIVERPINE_STRIPPED_LOG = new ShiverpineStrippedBlock();
+    public static final Block SHIVERPINE_PLANKS = new ShiverpineBlock();
+    public static final Block SHIVERPINE_FENCE = new ShiverpineFenceBlock();
+    public static final Block SHIVERPINE_GATE = new ShiverpineGateBlock();
+    public static final Block SHIVERPINE_DOOR = new ShiverpineDoorBlock();
+    public static final Block SHIVERPINE_TRAPDOOR = new ShiverpineTrapDoorBlock();
+
     static {
         ICEBOX_BLOCK = Registry.register(Registry.BLOCK, BOX, new IceBoxBlock(FabricBlockSettings.copyOf(CHEST)));
         ICEBOX_BLOCK_ITEM = Registry.register(Registry.ITEM, BOX, new BlockItem(ICEBOX_BLOCK, new Item.Settings().group(EXPLORATION_GROUP)));
@@ -341,6 +360,22 @@ public class Blocks {
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "shoji_large"), SHOJI_LARGE);
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "shoji_large"), new BlockItem(SHOJI_LARGE, new Item.Settings().group(FURNITURE_GROUP)));
 
+        //Shiverpine
+        Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "shiverpine_log"), SHIVERPINE_LOG);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "shiverpine_log"), new BlockItem(SHIVERPINE_LOG, new Item.Settings().group(FURNITURE_GROUP)));
+        Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "shiverpine_stripped_log"), SHIVERPINE_STRIPPED_LOG);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "shiverpine_stripped_log"), new BlockItem(SHIVERPINE_STRIPPED_LOG, new Item.Settings().group(FURNITURE_GROUP)));
+        Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "shiverpine_planks"), SHIVERPINE_PLANKS);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "shiverpine_planks"), new BlockItem(SHIVERPINE_PLANKS, new Item.Settings().group(FURNITURE_GROUP)));
+        Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "shiverpine_gate"), SHIVERPINE_GATE);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "shiverpine_gate"), new BlockItem(SHIVERPINE_GATE, new Item.Settings().group(FURNITURE_GROUP)));
+        Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "shiverpine_fence"), SHIVERPINE_FENCE);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "shiverpine_fence"), new BlockItem(SHIVERPINE_FENCE, new Item.Settings().group(FURNITURE_GROUP)));
+        Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "shiverpine_door"), SHIVERPINE_DOOR);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "shiverpine_door"), new BlockItem(SHIVERPINE_DOOR, new Item.Settings().group(FURNITURE_GROUP)));
+        Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "shiverpine_trapdoor"), SHIVERPINE_TRAPDOOR);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "shiverpine_trapdoor"), new BlockItem(SHIVERPINE_TRAPDOOR, new Item.Settings().group(FURNITURE_GROUP)));
+
         //Traps
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "spike_wall_block"), SPIKE_WALL_BLOCK);
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "spike_wall_block"), new BlockItem(SPIKE_WALL_BLOCK, new Item.Settings().group(EXPLORATION_GROUP)));
@@ -356,6 +391,11 @@ public class Blocks {
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "apple_sapling"), new BlockItem(APPLE_SAPLING, new Item.Settings().group(NATURE_GROUP)));
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "apple_leaves"), APPLE_LEAVES);
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "apple_leaves"), new BlockItem(APPLE_LEAVES, new Item.Settings().group(NATURE_GROUP)));
+
+        Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "shiverpine_sapling"), SHIVERPINE_SAPLING);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "shiverpine_sapling"), new BlockItem(SHIVERPINE_SAPLING, new Item.Settings().group(NATURE_GROUP)));
+        Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "shiverpine_leaves"), SHIVERPINE_LEAVES);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "shiverpine_leaves"), new BlockItem(SHIVERPINE_LEAVES, new Item.Settings().group(NATURE_GROUP)));
 
         //Cave Plants
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "faery_mushroom"), FAERY_MUSHROOM);

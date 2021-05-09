@@ -75,9 +75,12 @@ public class ClientModInitFix implements ClientModInitializer {
         //apple leaves texture fix
         BlockRenderLayerMap.INSTANCE.putBlock(APPLE_LEAVES, RenderLayer.getTranslucent());
         BlockRenderLayerMap.INSTANCE.putBlock(APPLE_LEAVES, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(SHIVERPINE_LEAVES, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(SHIVERPINE_LEAVES, RenderLayer.getCutout());
 
         //apple sapling texture fix
         BlockRenderLayerMap.INSTANCE.putBlock(APPLE_SAPLING, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(SHIVERPINE_SAPLING, RenderLayer.getCutout());
 
         //bush texture fix
         BlockRenderLayerMap.INSTANCE.putBlock(BITTER_BERRY_BUSH, RenderLayer.getCutout());
