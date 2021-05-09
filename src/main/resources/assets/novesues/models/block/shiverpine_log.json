@@ -3,6 +3,6 @@
   "textures": {
     "top": "novesues:blocks/shiverpine_log_top",
     "bottom": "novesues:blocks/shiverpine_log_top",
-    "side": "novesues:blocks/shiverpine_log_side"
+    "side": "novesues:blocks/shiverpine_log"
   }
 }
