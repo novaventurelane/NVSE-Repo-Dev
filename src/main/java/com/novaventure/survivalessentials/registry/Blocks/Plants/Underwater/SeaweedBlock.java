@@ -1,7 +1,5 @@
 package com.novaventure.survivalessentials.registry.Blocks.Plants.Underwater;
 
-import java.util.Random;
-
 import net.minecraft.block.*;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.FluidState;
@@ -15,6 +13,8 @@ import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.WorldAccess;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.Random;
 
 import static com.novaventure.survivalessentials.registry.Initializers.Blocks.SEAWEED_PLANT;
 

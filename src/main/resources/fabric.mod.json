@@ -19,9 +19,11 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.novaventure.survivalessentials.SurvivalEssentials"],
+      "com.novaventure.survivalessentials.SurvivalEssentials"
+    ],
     "client": [
-      "com.novaventure.survivalessentials.ClientModInitFix"]
+      "com.novaventure.survivalessentials.SurvivalEssentialsClient"
+    ]
   },
   "mixins": [
     "novesues.mixins.json"

@@ -14,8 +14,6 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
 import net.minecraft.world.World;
 
-import static com.novaventure.survivalessentials.registry.Initializers.FoodAndCooking.JARPOTION_BASE;
-
 public class ArrowBundleBase extends Item {
     public ArrowBundleBase(Item.Settings settings) {
         super(settings);

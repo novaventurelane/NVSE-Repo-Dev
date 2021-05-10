@@ -17,27 +17,23 @@ import net.minecraft.state.property.Property;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import org.jetbrains.annotations.Nullable;
 
-public class SpikeTrapBlock extends Block implements Waterloggable {
-    protected static final VoxelShape COLLISION_SHAPE;
+public class SpikeTrapBlock extends FacingBlock implements Waterloggable {
     protected static final VoxelShape OUTLINE_SHAPE;
     public static final BooleanProperty WATERLOGGED;
 
-    public SpikeTrapBlock() {
-        super(FabricBlockSettings.of(Material.WOOD)
-                .breakByTool(FabricToolTags.AXES)
-                .breakByHand(true)
-                .sounds(BlockSoundGroup.BAMBOO)
-                .strength(3, 1.5f));
-        this.setDefaultState((BlockState)((BlockState)((BlockState)this.stateManager.getDefaultState()).with(WATERLOGGED, false)));
+    public SpikeTrapBlock(AbstractBlock.Settings settings) {
+        super(settings);
+        this.setDefaultState(this.stateManager.getDefaultState().with(WATERLOGGED, false).with(FACING, Direction.DOWN));
     }
 
     public VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return COLLISION_SHAPE;
+        return VoxelShapes.empty();
     }
 
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
@@ -49,18 +45,20 @@ public class SpikeTrapBlock extends Block implements Waterloggable {
     }
 
     public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
+        if (state.get(WATERLOGGED)) {
+            entity.damage(DamageSource.CACTUS, 2.0F);
+        }
         entity.damage(DamageSource.CACTUS, 4.0F);
     }
 
     @Nullable
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        FluidState fluidState = ctx.getWorld().getFluidState(ctx.getBlockPos());
-        boolean bl = fluidState.getFluid() == Fluids.WATER;
-        return (BlockState)super.getPlacementState(ctx).with(WATERLOGGED, bl);
+        boolean bl = ctx.getWorld().getFluidState(ctx.getBlockPos()).getFluid() == Fluids.WATER;
+        return this.getDefaultState().with(WATERLOGGED, bl).with(FACING, ctx.getPlayerLookDirection().getOpposite());
     }
 
     public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState newState, WorldAccess world, BlockPos pos, BlockPos posFrom) {
-        if ((Boolean)state.get(WATERLOGGED)) {
+        if (state.get(WATERLOGGED)) {
             world.getFluidTickScheduler().schedule(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
         }
 
@@ -68,16 +66,15 @@ public class SpikeTrapBlock extends Block implements Waterloggable {
     }
 
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(new Property[]{WATERLOGGED});
+        builder.add(FACING, WATERLOGGED);
     }
 
     public FluidState getFluidState(BlockState state) {
-        return (Boolean)state.get(WATERLOGGED) ? Fluids.WATER.getStill(false) : super.getFluidState(state);
+        return state.get(WATERLOGGED) ? Fluids.WATER.getStill(false) : super.getFluidState(state);
     }
 
     static {
-        COLLISION_SHAPE = Block.createCuboidShape(0.0D, 0.0D, 0.0D, 0.0D, 0.0D, 0.0D);
-        OUTLINE_SHAPE = Block.createCuboidShape(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
+        OUTLINE_SHAPE = Block.createCuboidShape(1.0D, 1.0D, 1.0D, 15.0D, 15.0D, 15.0D);
         WATERLOGGED = Properties.WATERLOGGED;
     }
 }

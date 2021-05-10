@@ -1,20 +1,20 @@
 package com.novaventure.survivalessentials.registry.Features;
 
-    import com.mojang.serialization.Codec;
-    import java.util.Random;
+import com.mojang.serialization.Codec;
+import com.novaventure.survivalessentials.registry.Blocks.Plants.Underwater.SeaweedBlock;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.Heightmap;
+import net.minecraft.world.StructureWorldAccess;
+import net.minecraft.world.gen.chunk.ChunkGenerator;
+import net.minecraft.world.gen.feature.DefaultFeatureConfig;
+import net.minecraft.world.gen.feature.Feature;
 
-    import com.novaventure.survivalessentials.registry.Blocks.Plants.Underwater.SeaweedBlock;
-    import net.minecraft.block.BlockState;
-    import net.minecraft.block.Blocks;
-    import net.minecraft.util.math.BlockPos;
-    import net.minecraft.world.Heightmap;
-    import net.minecraft.world.StructureWorldAccess;
-    import net.minecraft.world.gen.chunk.ChunkGenerator;
-    import net.minecraft.world.gen.feature.*;
+import java.util.Random;
 
-    import static com.novaventure.survivalessentials.SurvivalEssentials.*;
-    import static com.novaventure.survivalessentials.registry.Initializers.Blocks.SEAWEED;
-    import static com.novaventure.survivalessentials.registry.Initializers.Blocks.SEAWEED_PLANT;
+import static com.novaventure.survivalessentials.registry.Initializers.Blocks.SEAWEED;
+import static com.novaventure.survivalessentials.registry.Initializers.Blocks.SEAWEED_PLANT;
 
 public class SeaweedFeature extends Feature<DefaultFeatureConfig> {
     public SeaweedFeature(Codec<DefaultFeatureConfig> config) {
@@ -34,7 +34,7 @@ public class SeaweedFeature extends Feature<DefaultFeatureConfig> {
             for(int l = 0; l <= k; ++l) {
                 if (structureWorldAccess.getBlockState(blockPos2).isOf(Blocks.WATER) && structureWorldAccess.getBlockState(blockPos2.up()).isOf(Blocks.WATER) && blockState2.canPlaceAt(structureWorldAccess, blockPos2)) {
                     if (l == k) {
-                        structureWorldAccess.setBlockState(blockPos2, (BlockState)blockState.with(SeaweedBlock.AGE, random.nextInt(4) + 20), 2);
+                        structureWorldAccess.setBlockState(blockPos2, blockState.with(SeaweedBlock.AGE, random.nextInt(4) + 20), 2);
                         ++i;
                     } else {
                         structureWorldAccess.setBlockState(blockPos2, blockState2, 2);
@@ -42,7 +42,7 @@ public class SeaweedFeature extends Feature<DefaultFeatureConfig> {
                 } else if (l > 0) {
                     BlockPos blockPos3 = blockPos2.down();
                     if (blockState.canPlaceAt(structureWorldAccess, blockPos3) && !structureWorldAccess.getBlockState(blockPos3.down()).isOf(SEAWEED)) {
-                        structureWorldAccess.setBlockState(blockPos3, (BlockState)blockState.with(SeaweedBlock.AGE, random.nextInt(4) + 20), 2);
+                        structureWorldAccess.setBlockState(blockPos3, blockState.with(SeaweedBlock.AGE, random.nextInt(4) + 20), 2);
                         ++i;
                     }
                     break;

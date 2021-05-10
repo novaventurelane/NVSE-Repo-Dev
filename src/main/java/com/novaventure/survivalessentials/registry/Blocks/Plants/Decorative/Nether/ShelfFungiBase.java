@@ -1,8 +1,6 @@
 package com.novaventure.survivalessentials.registry.Blocks.Plants.Decorative.Nether;
 
 import net.minecraft.block.*;
-import net.minecraft.fluid.FluidState;
-import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
@@ -29,7 +27,7 @@ public class ShelfFungiBase extends FacingBlock {
     }
 
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        switch ((Direction)state.get(FACING)) {
+        switch (state.get(FACING)) {
             case NORTH:
                 return NORTH_SHAPE;
             case SOUTH:
@@ -102,7 +100,7 @@ public class ShelfFungiBase extends FacingBlock {
     @Nullable
 
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return (BlockState)super.getPlacementState(ctx).with(FACING, ctx.getPlayerLookDirection().getOpposite());
+        return super.getPlacementState(ctx).with(FACING, ctx.getPlayerLookDirection().getOpposite());
     }
 
     static {

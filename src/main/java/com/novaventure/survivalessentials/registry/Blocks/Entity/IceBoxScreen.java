@@ -4,16 +4,13 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
-public class BoxScreen extends HandledScreen<IceBoxScreenHandler> {
-
-    // a path to gui texture, you may replace it with new Identifier(YourMod.MOD_ID, "textures/gui/container/your_container.png");
+public class IceBoxScreen extends HandledScreen<IceBoxScreenHandler> {
     private static final Identifier TEXTURE = new Identifier("novesues","textures/overlays/icebox_inventory.png");
 
-    public BoxScreen(IceBoxScreenHandler handler, PlayerInventory playerInventory, Text title) {
+    public IceBoxScreen(IceBoxScreenHandler handler, PlayerInventory playerInventory, Text title) {
         super(handler, playerInventory, title);
         this.backgroundHeight = 114 + 6 * 18;
     }
@@ -30,6 +27,6 @@ public class BoxScreen extends HandledScreen<IceBoxScreenHandler> {
 
     @Override
     protected void drawForeground(MatrixStack matrices, int mouseX, int mouseY) {
-        this.textRenderer.draw(matrices, this.title, 8.0F, 6.0F, 000000);
+        this.textRenderer.draw(matrices, this.title, 8.0F, 6.0F, 4210752);
     }
 }

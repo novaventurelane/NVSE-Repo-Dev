@@ -2,7 +2,6 @@ package com.novaventure.survivalessentials.registry.Creatures.Jellyfish;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.Goal;
@@ -11,6 +10,7 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.mob.WaterCreatureEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
@@ -47,7 +47,7 @@ public class JellyfishEntity extends WaterCreatureEntity {
 
     public JellyfishEntity(EntityType<? extends JellyfishEntity> entityType, World world)  {
         super(entityType, world);
-        this.random.setSeed((long)this.getEntityId());
+        this.random.setSeed(this.getEntityId());
         this.thrustTimerSpeed = 0.5F / (this.random.nextFloat() + 1.0F) * 0.2F;
     }
 
@@ -119,7 +119,7 @@ public class JellyfishEntity extends WaterCreatureEntity {
             }
 
             if (!this.world.isClient) {
-                this.setVelocity((double)(this.swimX * this.swimVelocityScale), (double)(this.swimY * this.swimVelocityScale), (double)(this.swimZ * this.swimVelocityScale));
+                this.setVelocity(this.swimX * this.swimVelocityScale, this.swimY * this.swimVelocityScale, this.swimZ * this.swimVelocityScale);
             }
 
             Vec3d vec3d = this.getVelocity();
@@ -127,7 +127,7 @@ public class JellyfishEntity extends WaterCreatureEntity {
             this.bodyYaw += (-((float)MathHelper.atan2(vec3d.x, vec3d.z)) * 57.295776F - this.bodyYaw) * 0.1F;
             this.yaw = this.bodyYaw;
             this.rollAngle = (float)((double)this.rollAngle + 3.141592653589793D * (double)this.turningSpeed * 0.5D);
-            this.tiltAngle += (-((float)MathHelper.atan2((double)g, vec3d.y)) * 57.295776F - this.tiltAngle) * 0.1F;
+            this.tiltAngle += (-((float)MathHelper.atan2(g, vec3d.y)) * 57.295776F - this.tiltAngle) * 0.1F;
         } else {
             this.tentacleAngle = MathHelper.abs(MathHelper.sin(this.thrustTimer)) * 3.1415927F * 0.25F;
             if (!this.world.isClient) {
@@ -211,7 +211,7 @@ public class JellyfishEntity extends WaterCreatureEntity {
                         }
 
                         if (f > 0.0F) {
-                            vec3d = vec3d.multiply((double)f);
+                            vec3d = vec3d.multiply(f);
                         }
                     }
 

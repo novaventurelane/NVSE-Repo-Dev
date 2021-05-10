@@ -21,7 +21,6 @@ import static com.novaventure.survivalessentials.registry.Features.NetherSaltFea
 import static com.novaventure.survivalessentials.registry.Features.SaltOreFeature.ORE_SALT_OVERWORLD;
 import static com.novaventure.survivalessentials.registry.Initializers.Blocks.*;
 import static net.minecraft.world.biome.BiomeKeys.*;
-import static net.minecraft.world.biome.BiomeKeys.SOUL_SAND_VALLEY;
 
 public class FeaturesInitializer {
     //features

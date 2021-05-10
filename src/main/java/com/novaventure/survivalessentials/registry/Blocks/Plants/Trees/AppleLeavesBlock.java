@@ -30,7 +30,7 @@ public class AppleLeavesBlock extends LeavesBlock {
 
     public AppleLeavesBlock(Settings settings) {
         super(settings);
-        this.setDefaultState((BlockState)((BlockState)((BlockState)this.stateManager.getDefaultState()).with(DISTANCE, 7)).with(PERSISTENT, false));
+        this.setDefaultState(this.stateManager.getDefaultState().with(DISTANCE, 7).with(PERSISTENT, false));
     }
 
     public VoxelShape getSidesShape(BlockState state, BlockView world, BlockPos pos) {
@@ -38,11 +38,11 @@ public class AppleLeavesBlock extends LeavesBlock {
     }
 
     public boolean hasRandomTicks(BlockState state) {
-        return (Integer)state.get(DISTANCE) == 7 && !(Boolean)state.get(PERSISTENT);
+        return state.get(DISTANCE) == 7 && !(Boolean)state.get(PERSISTENT);
     }
 
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        if (!(Boolean)state.get(PERSISTENT) && (Integer)state.get(DISTANCE) == 7) {
+        if (!(Boolean)state.get(PERSISTENT) && state.get(DISTANCE) == 7) {
             dropStacks(state, world, pos);
             world.removeBlock(pos, false);
         }
@@ -59,7 +59,7 @@ public class AppleLeavesBlock extends LeavesBlock {
 
     public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState newState, WorldAccess world, BlockPos pos, BlockPos posFrom) {
         int i = getDistanceFromLog(newState) + 1;
-        if (i != 1 || (Integer)state.get(DISTANCE) != i) {
+        if (i != 1 || state.get(DISTANCE) != i) {
             world.getBlockTickScheduler().schedule(pos, this, 1);
         }
 
@@ -81,14 +81,14 @@ public class AppleLeavesBlock extends LeavesBlock {
             }
         }
 
-        return (BlockState)state.with(DISTANCE, i);
+        return state.with(DISTANCE, i);
     }
 
     private static int getDistanceFromLog(BlockState state) {
         if (BlockTags.LOGS.contains(state.getBlock())) {
             return 0;
         } else {
-            return state.getBlock() instanceof LeavesBlock ? (Integer)state.get(DISTANCE) : 7;
+            return state.getBlock() instanceof LeavesBlock ? state.get(DISTANCE) : 7;
         }
     }
 
@@ -109,11 +109,11 @@ public class AppleLeavesBlock extends LeavesBlock {
     }
 
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(new Property[]{DISTANCE, PERSISTENT});
+        builder.add(DISTANCE, PERSISTENT);
     }
 
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return updateDistanceFromLogs((BlockState)this.getDefaultState().with(PERSISTENT, true), ctx.getWorld(), ctx.getBlockPos());
+        return updateDistanceFromLogs(this.getDefaultState().with(PERSISTENT, true), ctx.getWorld(), ctx.getBlockPos());
     }
 
     static {

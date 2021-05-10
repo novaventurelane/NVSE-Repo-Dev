@@ -2,15 +2,16 @@
   "variants": {
     "facing=east": {
       "model": "novesues:block/shoji_large",
+      "x": 90,
       "y": 90
     },
     "facing=north": {
       "model": "novesues:block/shoji_large",
-      "y": 0
+      "x": 90
     },
     "facing=down": {
       "model": "novesues:block/shoji_large",
-      "y": 0
+      "x": 180
     },
     "facing=up": {
       "model": "novesues:block/shoji_large",
@@ -18,10 +19,12 @@
     },
     "facing=south": {
       "model": "novesues:block/shoji_large",
+      "x": 90,
       "y": 180
     },
     "facing=west": {
       "model": "novesues:block/shoji_large",
+      "x": 90,
       "y": 270
     }
   }

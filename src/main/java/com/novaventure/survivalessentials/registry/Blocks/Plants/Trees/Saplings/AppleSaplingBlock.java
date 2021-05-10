@@ -1,6 +1,9 @@
 package com.novaventure.survivalessentials.registry.Blocks.Plants.Trees.Saplings;
 
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.ShapeContext;
 import net.minecraft.block.sapling.SaplingGenerator;
 import net.minecraft.entity.ai.pathing.NavigationType;
 import net.minecraft.util.math.BlockPos;
@@ -32,7 +35,7 @@ public class AppleSaplingBlock extends SESaplingBlock {
     }
 
     public boolean canPathfindThrough(BlockState state, BlockView world, BlockPos pos, NavigationType type) {
-        return type == NavigationType.AIR && !this.collidable ? true : super.canPathfindThrough(state, world, pos, type);
+        return type == NavigationType.AIR && !this.collidable || super.canPathfindThrough(state, world, pos, type);
     }
 
     protected boolean canPlantOnTop(BlockState floor, BlockView world, BlockPos pos) {

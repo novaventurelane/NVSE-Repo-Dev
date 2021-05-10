@@ -22,7 +22,7 @@ public class CampfirePotBlockEntity extends AbstractFurnaceBlockEntity {
     }
 
     protected int getFuelTime(ItemStack fuel) {
-        return super.getFuelTime(fuel) / 1;
+        return super.getFuelTime(fuel);
     }
 
     protected ScreenHandler createScreenHandler(int syncId, PlayerInventory playerInventory) {

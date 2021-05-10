@@ -27,8 +27,8 @@ public class InfestedRedstoneOreBlock extends Block {
     }
 
     private void spawnRedstonefish(ServerWorld serverWorld, BlockPos pos) {
-        RedstoneBugEntity redstoneBugEntity = (RedstoneBugEntity) OVERWORLD_REDSTONE_BUG.create(serverWorld);
-        redstoneBugEntity.refreshPositionAndAngles((double)pos.getX() + 0.5D, (double)pos.getY(),
+        RedstoneBugEntity redstoneBugEntity = OVERWORLD_REDSTONE_BUG.create(serverWorld);
+        redstoneBugEntity.refreshPositionAndAngles((double)pos.getX() + 0.5D, pos.getY(),
                 (double)pos.getZ() + 0.5D, 0.0F, 0.0F);
         serverWorld.spawnEntity(redstoneBugEntity);
         redstoneBugEntity.playSpawnEffects();
