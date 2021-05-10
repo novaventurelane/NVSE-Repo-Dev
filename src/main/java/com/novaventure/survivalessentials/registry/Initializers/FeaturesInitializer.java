@@ -19,7 +19,7 @@ import net.minecraft.world.gen.feature.*;
 import static com.novaventure.survivalessentials.SurvivalEssentials.MOD_ID;
 import static com.novaventure.survivalessentials.registry.Features.NetherSaltFeature.ORE_SALT_NETHER;
 import static com.novaventure.survivalessentials.registry.Features.SaltOreFeature.ORE_SALT_OVERWORLD;
-import static com.novaventure.survivalessentials.registry.Initializers.Blocks.APPLE_LEAVES;
+import static com.novaventure.survivalessentials.registry.Initializers.Blocks.*;
 import static net.minecraft.world.biome.BiomeKeys.*;
 
 public class FeaturesInitializer {
@@ -52,17 +52,31 @@ public class FeaturesInitializer {
         //Things That Burn
         FlammableBlockRegistry flammableBlockRegistry = FlammableBlockRegistry.getDefaultInstance();
         flammableBlockRegistry.add(APPLE_LEAVES, 60, 100);
+        flammableBlockRegistry.add(SHIVERPINE_DOOR, 60, 100);
+        flammableBlockRegistry.add(SHIVERPINE_FENCE, 60, 100);
+        flammableBlockRegistry.add(SHIVERPINE_GATE, 60, 100);
+        flammableBlockRegistry.add(SHIVERPINE_LEAVES, 60, 100);
+        flammableBlockRegistry.add(SHIVERPINE_LOG, 60, 100);
+        flammableBlockRegistry.add(SHIVERPINE_PLANKS, 60, 100);
+        flammableBlockRegistry.add(SHIVERPINE_STRIPPED_LOG, 60, 100);
+        flammableBlockRegistry.add(SHIVERPINE_TRAPDOOR, 60, 100);
 
         //trees
         SEConfiguredFeatures.registerConfiguredFeatures();
 
         //Feature Generation
         //apple tree gen
-        RegistryKey<ConfiguredFeature<?, ?>> scatteredtreeFeatureOverworld = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN,
+        RegistryKey<ConfiguredFeature<?, ?>> scatteredappletreeFeatureOverworld = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN,
                 new Identifier(MOD_ID, "scattered_apple_trees"));
         //noinspection deprecation
         BiomeModifications.addFeature(BiomeSelectors.includeByKey(PLAINS), GenerationStep.Feature.TOP_LAYER_MODIFICATION,
-                scatteredtreeFeatureOverworld);
+                scatteredappletreeFeatureOverworld);
+        //shiverpine tree gen
+        RegistryKey<ConfiguredFeature<?, ?>> scatteredshiverpinetreeFeatureOverworld = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN,
+                new Identifier(MOD_ID, "scattered_shiverpine_trees"));
+        //noinspection deprecation
+        BiomeModifications.addFeature(BiomeSelectors.includeByKey(SNOWY_TUNDRA, ICE_SPIKES, FROZEN_OCEAN, DEEP_FROZEN_OCEAN, FROZEN_RIVER), GenerationStep.Feature.TOP_LAYER_MODIFICATION,
+                scatteredshiverpinetreeFeatureOverworld);
         //faery mushroom gen
         //green mushroom gen
         //new brown kelp gen
